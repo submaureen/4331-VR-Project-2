@@ -9,8 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform playerCamera = null;
 
     float cameraPitch = 0.0f;
+
+    CharacterController controller = null;
     void Start()
     {
+        controller = GetComponent<CharacterController>();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = true;
         
     }
 
@@ -18,6 +23,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         UpdateMouseLook();
+        UpdateMovement();
     }
 
     void UpdateMouseLook()
@@ -30,6 +36,18 @@ public class PlayerController : MonoBehaviour
         playerCamera.localEulerAngles = Vector3.right * cameraPitch;
 
         transform.Rotate(Vector3.up * mouseDelta.x * 2);
+
+    }
+
+    void UpdateMovement() 
+    {
+        Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        inputDir.Normalize();
+
+        Vector3 velocity = (transform.forward * inputDir.y + transform.right * inputDir.x) * 10;
+
+        controller.Move(velocity * Time.deltaTime);
+
 
     }
 }
