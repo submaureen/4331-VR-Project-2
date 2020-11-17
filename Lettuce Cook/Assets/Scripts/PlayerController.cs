@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = true;
         
     }
 
@@ -24,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         UpdateMouseLook();
         UpdateMovement();
+        Debug.Log(Cursor.visible);
     }
 
     void UpdateMouseLook()
