@@ -9,6 +9,9 @@ public class RecipeManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine(StartCountdown());
+
+        Debug.Log("all done");
         
     }
 
