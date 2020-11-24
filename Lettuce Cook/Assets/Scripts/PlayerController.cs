@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,9 +14,11 @@ public class PlayerController : MonoBehaviour
     CharacterController controller = null;
     void Start()
     {
+
         controller = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
-        
+        XRSettings.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -23,7 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         UpdateMouseLook();
         UpdateMovement();
-        Debug.Log(Cursor.visible);
+
+
     }
 
     void UpdateMouseLook()
