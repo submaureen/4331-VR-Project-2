@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ContainerCollisions : MonoBehaviour
 {
+    public static bool stageClear;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,14 @@ public class ContainerCollisions : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        Debug.Log(collision.gameObject.name);
+        if (collider.gameObject.tag == "ingredient")
+        {
+            stageClear = true;
+            Debug.Log(collider.gameObject.name);
+        }
+
        
     }
 }
