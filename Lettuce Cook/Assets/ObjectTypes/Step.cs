@@ -13,6 +13,9 @@ namespace Assets.ObjectTypes
         public string ingredient;
         public string instructions;
         public int cookTime;
+        public int health = 5;
+        public int penaltyAmount = 1;
+        public int quantity = 1;
         public string[] models;
         public Transform position;
     }

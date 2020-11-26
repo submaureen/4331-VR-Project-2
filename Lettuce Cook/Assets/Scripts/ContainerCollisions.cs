@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ContainerCollisions : MonoBehaviour
 {
-    public static bool stageClear;
+    public static bool stepClear;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class ContainerCollisions : MonoBehaviour
     {
         if (collider.gameObject.tag == "ingredient")
         {
-            stageClear = true;
+            stepClear = true;
             Debug.Log(collider.gameObject.name);
         }
 
