@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using Assets.ObjectTypes;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ContainerCollisions : MonoBehaviour
 {
     public static bool stepClear;
-    public static string stepIngredient;
+    public static Step step;
     public static bool wrongIngredient;
     public static GameObject currentInteraction;
 
@@ -25,9 +26,14 @@ public class ContainerCollisions : MonoBehaviour
     {
         if (collider.gameObject.tag == "ingredient")
         {
-            if (stepIngredient == collider.gameObject.name)
+            if (step.ingredient == collider.gameObject.name)
             {
-                stepClear = true;
+                step.quantity--;
+                if (step.quantity == 0)
+                {
+                    stepClear = true;
+                }
+                Debug.Log(step.ingredient + " is in!");
             } else
             {
                 currentInteraction = collider.gameObject;

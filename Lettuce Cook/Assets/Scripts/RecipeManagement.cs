@@ -47,7 +47,7 @@ public class RecipeManagement : MonoBehaviour
         instruction.text = currentStep.instructions;
         currCountdownValue = currentStep.cookTime;
 
-        ContainerCollisions.stepIngredient = currentStep.ingredient;
+        ContainerCollisions.step = currentStep;
 
         // cookTime with -1 will wait for step to complete
         while (currCountdownValue == -1 && !ContainerCollisions.stepClear)
@@ -62,7 +62,7 @@ public class RecipeManagement : MonoBehaviour
             timer.text = "Countdown: " + currCountdownValue;
             if (ContainerCollisions.stepClear)
             {
-                Debug.Log(currentStep.ingredient + " is in!");
+                // Finished putting in all of the ingredients
                 break;
             }
             if (ContainerCollisions.wrongIngredient)
