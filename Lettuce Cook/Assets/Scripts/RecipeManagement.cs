@@ -13,6 +13,9 @@ public class RecipeManagement : MonoBehaviour
     [SerializeField]
     Text instruction;
 
+    [SerializeField]
+    Text timer;
+
     float currCountdownValue;
     int stepCounter = 0;
     Recipe currentRecipe;
@@ -44,20 +47,34 @@ public class RecipeManagement : MonoBehaviour
         instruction.text = currentStep.instructions;
         currCountdownValue = currentStep.cookTime;
 
+        ContainerCollisions.stepIngredient = currentStep.ingredient;
+
         // cookTime with -1 will wait for step to complete
         while (currCountdownValue == -1 && !ContainerCollisions.stepClear)
         {
+            timer.text = "Take your time :)";
             yield return null;
         }
 
         // Countdown until step timer complete
         while (currCountdownValue > 0)
         {
-            Debug.Log("Countdown: " + currCountdownValue);
+            timer.text = "Countdown: " + currCountdownValue;
             if (ContainerCollisions.stepClear)
             {
                 Debug.Log(currentStep.ingredient + " is in!");
                 break;
+            }
+            if (ContainerCollisions.wrongIngredient)
+            {
+                ContainerCollisions.wrongIngredient = false;
+                IngredientInfo info = ContainerCollisions.currentInteraction.GetComponent<IngredientInfo>();
+                ContainerCollisions.currentInteraction.transform.parent.transform.position = info.ogPosition;
+
+                // inserted wrong ingredient from recipe
+                // reset ingredient
+                // decrease last steps score
+                // display smoke and play sound
             }
             yield return new WaitForSeconds(1.0f);
             currCountdownValue--;

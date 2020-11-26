@@ -5,6 +5,10 @@ using UnityEngine;
 public class ContainerCollisions : MonoBehaviour
 {
     public static bool stepClear;
+    public static string stepIngredient;
+    public static bool wrongIngredient;
+    public static GameObject currentInteraction;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +25,15 @@ public class ContainerCollisions : MonoBehaviour
     {
         if (collider.gameObject.tag == "ingredient")
         {
-            stepClear = true;
-            Debug.Log(collider.gameObject.name);
+            if (stepIngredient == collider.gameObject.name)
+            {
+                stepClear = true;
+            } else
+            {
+                currentInteraction = collider.gameObject;
+                Debug.Log(currentInteraction);
+                wrongIngredient = true;
+            }
         }
 
        
