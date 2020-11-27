@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Assets.ObjectTypes
 {
     [Serializable]
-    class Recipe
+    public class Recipe
     {
         public string name;
         public Step[] steps;
