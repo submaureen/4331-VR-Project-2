@@ -49,11 +49,24 @@ public class PrepManagement : MonoBehaviour
             yield return null;
         }
 
+        IngredientInfo info = UtensilCollision.currentInteraction.GetComponent<IngredientInfo>();
+
         UtensilCollision.stepClear = false;
         stepCounter++;
 
-        Debug.Log(stepCounter);
-        Debug.Log(currentPrep.steps.Length);
+
+
+
+        if (info.choppedIngredient != null)
+        {
+            info.choppedIngredient.transform.position = UtensilCollision.currentInteraction.transform.position;
+            Destroy(UtensilCollision.currentInteraction);
+            for (int i = 0; i < currentStep.quantity; i++)
+            {
+                Instantiate(info.choppedIngredient);
+            }
+        }
+
 
         if (stepCounter < currentPrep.steps.Length)
         {

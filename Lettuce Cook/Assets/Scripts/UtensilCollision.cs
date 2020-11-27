@@ -25,7 +25,7 @@ public class UtensilCollision : MonoBehaviour
 
     void Foo()
     {
-        Debug.Log("poop");
+        // test to make sure that events are being fired properly
     }
 
     void OnTriggerEnter(Collider collider)
@@ -36,6 +36,7 @@ public class UtensilCollision : MonoBehaviour
             {
                 // delete original gameobject
                 // spawn in the same number of chopped prefabs as step.quantity
+                currentInteraction = collider.gameObject;
                 stepClear = true;
                 Debug.Log($"cut into {step.quantity} pieces");
                 Debug.Log("did a chopu");
