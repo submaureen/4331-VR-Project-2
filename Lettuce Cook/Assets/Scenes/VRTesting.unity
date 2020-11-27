@@ -527,6 +527,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 82000011706195170, guid: 1e914d8e31fa95b488c87df17e68d504,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82000013520326468, guid: 1e914d8e31fa95b488c87df17e68d504,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1e914d8e31fa95b488c87df17e68d504, type: 3}
 --- !u!114 &25972450 stripped
@@ -12337,10 +12347,6 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 11486988, guid: 380bbbca09a806c4c8607dd111d9ed8f, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 13582512, guid: 380bbbca09a806c4c8607dd111d9ed8f, type: 3}
       propertyPath: m_Radius
       value: 0.19
@@ -12814,6 +12820,7 @@ GameObject:
   m_Component:
   - component: {fileID: 880854752}
   - component: {fileID: 880854751}
+  - component: {fileID: 880854753}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -12870,6 +12877,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &880854753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 880854750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0fe09afabe98a14085522c2f5a7b883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prep:
+  - name: Adobo
+    steps:
+    - ingredient: chikon
+      instructions: Cut the chicken.
+      quantity: 2
+    - ingredient: Fish
+      instructions: Crush the garlic to let out the flavors.
+      quantity: 1
+  instructions: {fileID: 2146262822}
 --- !u!1001 &882634587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13318,6 +13347,10 @@ PrefabInstance:
     - target: {fileID: 475244, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261204, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 3}
@@ -25215,7 +25248,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1663821816}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.794, y: 1.218, z: -3.476}
+  m_LocalPosition: {x: -2.794, y: 1.218, z: -3.863}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1887396550}
@@ -25900,7 +25933,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1694234570}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.694, y: 1.0823, z: -3.511}
+  m_LocalPosition: {x: -2.694, y: 1.0823, z: -3.731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1707991948}
@@ -29699,8 +29732,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1835485172}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.562, y: 0.967, z: -3.91}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.562, y: 0.967, z: -4.049}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1707715870}

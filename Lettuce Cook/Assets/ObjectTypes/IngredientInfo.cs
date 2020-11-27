@@ -9,7 +9,7 @@ public class IngredientInfo : MonoBehaviour
     void Start()
     {
         ogPosition = gameObject.transform.position;
-        Debug.Log($"i do be at { ogPosition }");
+        // Debug.Log($"i do be at { ogPosition }");
         ogPosition.y++;
 
     }

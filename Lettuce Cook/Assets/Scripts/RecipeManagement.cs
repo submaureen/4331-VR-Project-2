@@ -30,8 +30,10 @@ public class RecipeManagement : MonoBehaviour
         // TODO: Get selected recipe from menu - currently assuming first recipe
         currentRecipe = recipes[0];
 
-        StartCoroutine(StartCountdown());
-        
+        PrepManagement.finishPrep += StartRecipe;
+
+        // StartCoroutine(StartCountdown());
+
     }
 
     // Update is called once per frame
@@ -39,6 +41,13 @@ public class RecipeManagement : MonoBehaviour
     {
         
     }
+
+    public void StartRecipe()
+    {
+        Debug.Log("aefie?");
+        StartCoroutine(StartCountdown());
+    }
+
 
     public IEnumerator StartCountdown()
     {
