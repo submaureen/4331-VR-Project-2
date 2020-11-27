@@ -53,6 +53,17 @@ public class RecipeManagement : MonoBehaviour
         while (currCountdownValue == -1 && !ContainerCollisions.stepClear)
         {
             timer.text = "Take your time :)";
+            if (ContainerCollisions.wrongIngredient)
+            {
+                ContainerCollisions.wrongIngredient = false;
+                IngredientInfo info = ContainerCollisions.currentInteraction.GetComponent<IngredientInfo>();
+                ContainerCollisions.currentInteraction.transform.parent.transform.position = info.ogPosition;
+
+                // inserted wrong ingredient from recipe
+                // reset ingredient
+                // decrease last steps score
+                // display smoke and play sound
+            }
             yield return null;
         }
 
