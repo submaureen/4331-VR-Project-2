@@ -1,10 +1,15 @@
-﻿using System.Collections;
+﻿using Assets.ObjectTypes;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ContainerCollisions : MonoBehaviour
 {
-    public static bool stageClear;
+    public static bool stepClear;
+    public static Step step;
+    public static bool wrongIngredient;
+    public static GameObject currentInteraction;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,8 +26,20 @@ public class ContainerCollisions : MonoBehaviour
     {
         if (collider.gameObject.tag == "ingredient")
         {
-            stageClear = true;
-            Debug.Log(collider.gameObject.name);
+            if (step.ingredient == collider.gameObject.name)
+            {
+                step.quantity--;
+                if (step.quantity == 0)
+                {
+                    stepClear = true;
+                }
+                Debug.Log(step.ingredient + " is in!");
+            } else
+            {
+                currentInteraction = collider.gameObject;
+                Debug.Log(currentInteraction);
+                wrongIngredient = true;
+            }
         }
 
        
