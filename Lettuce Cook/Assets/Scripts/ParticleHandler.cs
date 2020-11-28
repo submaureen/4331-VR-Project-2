@@ -17,20 +17,23 @@ public class ParticleHandler : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        time = 0;
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    time = 0;
+    //    print("enter" + other);
+    //}
 
-    private void OnTriggerStay(Collider other)
-    {
-        time += Time.deltaTime;
-    }
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    //time += Time.deltaTime;
+    //    print("a");
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        Debug.Log($" poured for {time * 100}");
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    print(other);
+    //    Debug.Log($" poured for {time * 100}");
+    //}
 
     private void OnCollisionEnter(Collision collision)
     {

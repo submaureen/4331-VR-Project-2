@@ -40,8 +40,29 @@ public class ContainerCollisions : MonoBehaviour
                 Debug.Log(currentInteraction);
                 wrongIngredient = true;
             }
+        } else if (collider.gameObject.tag == "particle")
+        {
+            print("enter: " + collider);
         }
 
        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "particle")
+        {
+            print("stay: " + other);
+        }
+        //time += Time.deltaTime;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "particle")
+        {
+            print("exit:" + other);
+        }
+        //Debug.Log($" poured for {time * 100}");
     }
 }
