@@ -56,7 +56,7 @@ public class PourDetector : MonoBehaviour
 
     private float CalcPourAngle()
     {
-        return Vector3.Dot(transform.up, Vector3.down);
+        return Vector3.Dot(origin.up, Vector3.down);
     }
 
     private StreamPour CreateStream()
