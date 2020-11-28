@@ -479,11 +479,7 @@ RectTransform:
   - {fileID: 2146262820}
   - {fileID: 162722631}
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-  m_RootOrder: 5
-=======
   m_RootOrder: 7
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -888,11 +884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   children: 0
-<<<<<<< Updated upstream
---- !u!1 &522097006
-=======
 --- !u!1 &578792355
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -900,44 +892,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< Updated upstream
-  - component: {fileID: 522097007}
-  m_Layer: 0
-  m_Name: Origin
-=======
   - component: {fileID: 578792359}
   - component: {fileID: 578792358}
   - component: {fileID: 578792357}
   - component: {fileID: 578792356}
   m_Layer: 0
   m_Name: BookCanvas
->>>>>>> Stashed changes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< Updated upstream
---- !u!4 &522097007
-Transform:
-=======
 --- !u!114 &578792356
 MonoBehaviour:
->>>>>>> Stashed changes
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< Updated upstream
-  m_GameObject: {fileID: 522097006}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0, y: -0, z: 0.01568}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1607504031}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
-=======
   m_GameObject: {fileID: 578792355}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1013,7 +984,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.3935, y: 1.3433}
   m_SizeDelta: {x: 1.25, y: 0.5}
   m_Pivot: {x: 0.5, y: 0.5}
->>>>>>> Stashed changes
 --- !u!1001 &634614422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1310,11 +1280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-  m_RootOrder: 7
-=======
   m_RootOrder: 6
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &880854753
 MonoBehaviour:
@@ -1800,9 +1766,6 @@ Transform:
   - {fileID: 1089882977}
   - {fileID: 1708707206}
   m_Father: {fileID: 0}
-<<<<<<< Updated upstream
-  m_RootOrder: 6
-=======
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1042976239
@@ -1836,7 +1799,6 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 578792359}
   m_RootOrder: 0
->>>>>>> Stashed changes
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4728,7 +4690,6 @@ GameObject:
   - component: {fileID: 1758264306}
   - component: {fileID: 1758264305}
   - component: {fileID: 1758264304}
-  - component: {fileID: 1758264311}
   m_Layer: 0
   m_Name: Soy Sauce
   m_TagString: Untagged
@@ -4982,22 +4943,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &1758264311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1758264302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4646d6a8d7c3d0348bfa4a89a1f446a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pourThreshold: -0.55
-  origin: {fileID: 522097007}
-  streamPrefab: {fileID: 5238570228697279498, guid: 687fe5b6c1388c34882009636030b3c7,
-    type: 3}
 --- !u!1 &1794918250
 GameObject:
   m_ObjectHideFlags: 0
