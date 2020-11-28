@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGameVR()
     {
-        SceneManager.LoadScene("VRTesting");
+        SceneManager.LoadScene("VR Main");
 
     }
 

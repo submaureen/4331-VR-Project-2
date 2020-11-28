@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class PrepManagement : MonoBehaviour
 {
+    private ButtonUpdatePage updateCurrentPage;
+
+    int recipePage;
 
     [SerializeField]
     Preparation[] prep;
@@ -24,7 +27,10 @@ public class PrepManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentPrep = prep[0];
+        //grabs the current page from book script 
+        recipePage = GameObject.Find("Button").GetComponent<ButtonUpdatePage>().getCurrentPage();
+
+        currentPrep = prep[recipePage];
 
         Debug.Log(currentPrep.name);
 
@@ -34,7 +40,8 @@ public class PrepManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Debug.Log(recipePage);
+
     }
 
 
