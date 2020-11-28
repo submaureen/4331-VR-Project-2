@@ -24,7 +24,6 @@ public class ContainerCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        print(collider);
         if (collider.gameObject.tag == "ingredient" && UtensilCollision.prepDone)
         {
             if (step.ingredient == collider.gameObject.name)
