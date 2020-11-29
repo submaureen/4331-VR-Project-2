@@ -7,6 +7,9 @@ TagManager:
   - projectile
   - FxTemporaire
   - ingredient
+  - particle
+  - mix
+  - chop
   layers:
   - Default
   - TransparentFX

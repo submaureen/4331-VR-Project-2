@@ -13,5 +13,6 @@ namespace Assets.ObjectTypes
         public string ingredient;
         public string instructions;
         public int quantity = 1;
+        public string stepType;
     }
 }

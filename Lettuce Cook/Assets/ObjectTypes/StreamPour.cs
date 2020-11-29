@@ -18,7 +18,6 @@ public class StreamPour : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
         splashParticle = GetComponentInChildren<ParticleSystem>();
-        Debug.Log(splashParticle);
     }
 
     void Start()

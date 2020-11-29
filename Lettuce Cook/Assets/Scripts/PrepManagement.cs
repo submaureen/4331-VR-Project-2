@@ -71,7 +71,7 @@ public class PrepManagement : MonoBehaviour
     {
         PrepStep currentStep = currentPrep.steps[stepCounter];
         UtensilCollision.step = currentStep;
-        instructions.text = $"looking to chop {currentStep.ingredient}";
+        instructions.text = currentStep.instructions;
 
         while (!UtensilCollision.stepClear)
         {
@@ -83,10 +83,12 @@ public class PrepManagement : MonoBehaviour
         UtensilCollision.stepClear = false;
         stepCounter++;
 
+        Debug.Log(UtensilCollision.self);
 
 
 
-        if (info.choppedIngredient != null)
+
+        if (info.choppedIngredient != null && !(UtensilCollision.self.tag == "mix") && currentStep.stepType == "chop")
         {
             info.choppedIngredient.transform.position = UtensilCollision.currentInteraction.transform.position;
             Destroy(UtensilCollision.currentInteraction);
