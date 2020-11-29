@@ -1,4 +1,5 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +12,8 @@ namespace Assets.ObjectTypes
     {
         public string name;
         public Step[] steps;
+
+        public GameObject finalFood;
+
     }
 }
