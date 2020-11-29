@@ -6,16 +6,28 @@ using UnityEngine.SceneManagement;
 
 public class ButtonUpdatePage : MonoBehaviour
 {
-    int recipePage;
+    public static int recipePage = 0;
     private Book book;
 
+    public delegate void ClickAction();
+    public static event ClickAction selectRecipe;
 
-    public int  getCurrentPage()
+
+    public void  getCurrentPage()
     {
+        //Debug.Log("aaaaaa");
         recipePage = GameObject.Find("Book").GetComponent<Book>().getCurrentPage();
-        return (recipePage);
+        //Debug.Log(recipePage);
+        selectRecipe();
+
     }
 
-    
+
+    public void fooBar()
+    {
+        Debug.Log("aa");
+
+    }
+
 
 }

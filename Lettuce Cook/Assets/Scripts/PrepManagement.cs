@@ -28,20 +28,29 @@ public class PrepManagement : MonoBehaviour
     void Start()
     {
         //grabs the current page from book script 
-        recipePage = GameObject.Find("Button").GetComponent<ButtonUpdatePage>().getCurrentPage();
+        // recipePage = GameObject.Find("Button").GetComponent<ButtonUpdatePage>().getCurrentPage();
 
-        currentPrep = prep[recipePage];
+        // currentPrep = prep[0];
+        ButtonUpdatePage.selectRecipe += testFunc;
+        // Debug.Log(currentPrep.name);
 
-        Debug.Log(currentPrep.name);
-
-        StartCoroutine(StartPrep());
+        // StartCoroutine(StartPrep());
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(recipePage);
+        //Debug.Log(recipePage);
 
+    }
+
+    public void testFunc()
+    {
+        Debug.Log("starting preparation stage");
+        // currentPrep = prep[ButtonUpdatePage.recipePage/2];
+        Debug.Log(ButtonUpdatePage.recipePage / 2);
+        // print(ButtonUpdatePage.recipePage);
+        //StartCoroutine(StartPrep());
     }
 
 
