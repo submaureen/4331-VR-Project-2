@@ -14,6 +14,9 @@ public class UtensilCollision : MonoBehaviour
     public static GameObject self;
     public static int mixCheck = -1;
     private float stepPourTime = -1;
+
+    [SerializeField]
+    public AudioSource[] sfx;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,12 +48,14 @@ public class UtensilCollision : MonoBehaviour
                 {
                     Debug.Log("we gonna chopu chopu");
                     currentInteraction = collider.gameObject;
+                    sfx[0].Play();
                     stepClear = true;
                 }
                 if (self.tag == "mix" && self.tag == step.stepType)
                 {
                     currentInteraction = collider.gameObject;
                     step.quantity--;
+                    sfx[0].Play();
                     if (step.quantity == 0)
                     {
                         stepClear = true;
@@ -65,6 +70,7 @@ public class UtensilCollision : MonoBehaviour
             // Set pour time to quantity only the inital pour
             if (stepPourTime == -1)
             {
+                sfx[1].Play();
                 stepPourTime = step.quantity;
             }
         }
@@ -84,6 +90,7 @@ public class UtensilCollision : MonoBehaviour
             else
             {
                 step.quantity = 0;
+                sfx[1].Stop();
                 gameObject.transform.Find("bowl_liquid").gameObject.SetActive(true);
                 stepClear = true;
             }

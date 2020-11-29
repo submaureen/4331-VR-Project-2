@@ -100,6 +100,7 @@ public class PrepManagement : MonoBehaviour
             Destroy(UtensilCollision.currentInteraction);
             for (int i = 0; i < currentStep.quantity; i++)
             {
+                // Kagebunshin no jutsu
                 Instantiate(info.choppedIngredient);
             }
         }

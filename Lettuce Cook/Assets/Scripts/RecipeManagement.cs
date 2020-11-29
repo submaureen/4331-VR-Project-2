@@ -17,10 +17,21 @@ public class RecipeManagement : MonoBehaviour
     [SerializeField]
     Text subtext;
 
+    [SerializeField]
+    AudioClip[] scoreClips;
+
+    [SerializeField]
+    AudioSource sfx;
+
     float currCountdownValue;
     int stepCounter = 0;
     Recipe currentRecipe;
     int maxHealth = 0;
+
+    public delegate void ClickAction();
+    public static event ClickAction burnedIngredient;
+
+    public static event ClickAction finishGame;
     // bool currentStepStatus = false;
 
     // Start is called before the first frame update
@@ -101,6 +112,11 @@ public class RecipeManagement : MonoBehaviour
                 IngredientInfo info = ContainerCollisions.currentInteraction.GetComponent<IngredientInfo>();
                 ContainerCollisions.currentInteraction.transform.parent.transform.position = info.ogPosition;
 
+
+                burnedIngredient();
+                Step previous = currentRecipe.steps[stepCounter - 1];
+                previous.health = Math.Max(0, previous.health - previous.penaltyAmount);
+
                 // inserted wrong ingredient from recipe
                 // reset ingredient
                 // decrease last steps score
@@ -115,8 +131,10 @@ public class RecipeManagement : MonoBehaviour
         {
             // TODO: Show some smoke and play sound
             // Burn the previous step
+            burnedIngredient();
             Step previous = currentRecipe.steps[stepCounter - 1];
             previous.health = Math.Max(0, previous.health - previous.penaltyAmount);
+            
             StartCoroutine(StartCountdown());
         } else // inserted
         {
@@ -126,6 +144,7 @@ public class RecipeManagement : MonoBehaviour
 
             if (stepCounter < currentRecipe.steps.Length)
             {
+                sfx.Play();
                 // Continue down recipe
                 Debug.Log("Going to next step");
                 StartCoroutine(StartCountdown());
@@ -133,6 +152,7 @@ public class RecipeManagement : MonoBehaviour
             else
             {
                 // Done cooking
+                subtext.text = "";
                 DoLast();
             }
         }
@@ -140,7 +160,22 @@ public class RecipeManagement : MonoBehaviour
 
     public void DoLast()
     {
-        instruction.text = "Finished! Good job!";
+        finishGame();
+        instruction.text = "Finished! Good job! Your score is:";
+
+        sfx.clip = scoreClips[1];
+        sfx.loop = true;
+        sfx.Play();
+        
+
+        StartCoroutine(ChottoMatte());
+
+
+    }
+
+    public IEnumerator ChottoMatte()
+    {
+        yield return new WaitForSeconds(2.5f);
 
         int health = 0;
         // Calculate score
@@ -150,6 +185,28 @@ public class RecipeManagement : MonoBehaviour
         }
 
         float score = ((float)health / maxHealth) * 100f;
+
+        switch (score)
+        {
+            case (100.0f):
+                sfx.Stop();
+                sfx.clip = scoreClips[4];
+                sfx.loop = false;
+                sfx.Play();
+                break;
+            case var expression when (score > 70.0f && score < 99.99f):
+                sfx.Stop();
+                sfx.clip = scoreClips[3];
+                sfx.loop = false;
+                sfx.Play();
+                break;
+            case var expression when (score < 70.0f):
+                sfx.Stop();
+                sfx.clip = scoreClips[2];
+                sfx.loop = false;
+                sfx.Play();
+                break;
+        }
 
         subtext.text = "Score: " + score.ToString("0.00");
 

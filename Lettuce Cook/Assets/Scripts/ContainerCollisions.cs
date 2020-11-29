@@ -11,9 +11,15 @@ public class ContainerCollisions : MonoBehaviour
     public static GameObject currentInteraction;
     private float stepPourTime = -1;
 
+    [SerializeField]
+    public AudioSource[] sfx;
+
     // Start is called before the first frame update
     void Start()
     {
+        PrepManagement.finishPrep += BeginFryNoise;
+        RecipeManagement.burnedIngredient += PlayBurnNoise;
+        RecipeManagement.finishGame += StopAudio;
         Debug.Log("hayo");
     }
 
@@ -23,12 +29,31 @@ public class ContainerCollisions : MonoBehaviour
         
     }
 
+    public void BeginFryNoise()
+    {
+        sfx[0].Play();
+    }
+
+    public void PlayBurnNoise()
+    {
+        sfx[3].Play();
+    }
+
+    public void StopAudio()
+    {
+        foreach (AudioSource source in sfx)
+        {
+            source.enabled = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "ingredient" && UtensilCollision.prepDone)
         {
             if (step.ingredient == collider.gameObject.name)
             {
+                sfx[1].Play();
                 step.quantity--;
                 if (step.quantity == 0)
                 {
@@ -48,6 +73,8 @@ public class ContainerCollisions : MonoBehaviour
             // Set pour time to quantity only the inital pour
             if (stepPourTime == -1)
             {
+                sfx[2].loop = true;
+                sfx[2].Play();
                 stepPourTime = step.quantity;
             }
         }
@@ -67,6 +94,8 @@ public class ContainerCollisions : MonoBehaviour
                 Debug.Log(Time.deltaTime);
             }
             else {
+                sfx[2].loop = false;
+                sfx[2].Stop();
                 step.quantity = 0;
                 stepClear = true;
             }
@@ -78,6 +107,7 @@ public class ContainerCollisions : MonoBehaviour
     {
         if (other.gameObject.tag == "particle")
         {
+            sfx[2].loop = false;
             print("exit:" + other);
         }
         //Debug.Log($" poured for {time * 100}");
