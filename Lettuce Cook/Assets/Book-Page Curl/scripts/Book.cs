@@ -37,6 +37,8 @@ public class Book : MonoBehaviour {
             return BookPanel.rect.height ; 
         }
     }
+
+    public AudioSource sfx;
     public Image ClippingPlane;
     public Image NextPageClip;
     public Image Shadow;
@@ -409,6 +411,7 @@ public class Book : MonoBehaviour {
     }
     public IEnumerator TweenTo(Vector3 to, float duration, System.Action onFinish)
     {
+        sfx.Play();
         int steps = (int)(duration / 0.025f);
         Vector3 displacement = (to - f) / steps;
         for (int i = 0; i < steps-1; i++)

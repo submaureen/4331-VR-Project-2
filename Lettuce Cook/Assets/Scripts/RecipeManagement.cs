@@ -144,6 +144,7 @@ public class RecipeManagement : MonoBehaviour
 
             if (stepCounter < currentRecipe.steps.Length)
             {
+                sfx.Play();
                 // Continue down recipe
                 Debug.Log("Going to next step");
                 StartCoroutine(StartCountdown());
@@ -151,8 +152,8 @@ public class RecipeManagement : MonoBehaviour
             else
             {
                 // Done cooking
-                DoLast();
                 subtext.text = "";
+                DoLast();
             }
         }
     }
