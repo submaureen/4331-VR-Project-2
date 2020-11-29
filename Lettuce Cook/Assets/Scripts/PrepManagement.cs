@@ -48,16 +48,21 @@ public class PrepManagement : MonoBehaviour
     {
         Debug.Log("starting preparation stage");
         // currentPrep = prep[ButtonUpdatePage.recipePage/2];
-        if (ButtonUpdatePage.recipePage < 1)
+        int page = ((ButtonUpdatePage.recipePage / 2) - 1);
+        //Debug.Log((ButtonUpdatePage.recipePage / 2) - 1);
+        if (page < 0)
         {
-            ButtonUpdatePage.recipePage = 0;
-            Debug.Log(ButtonUpdatePage.recipePage);
+            instructions.text = ("Pick a valid recipe!");
+            //Debug.Log(ButtonUpdatePage.recipePage);
         }
         else
-        Debug.Log(ButtonUpdatePage.recipePage - 1);
-        print(ButtonUpdatePage.recipePage);
-        //StartCoroutine(StartPrep());
-
+        {
+            currentPrep = prep[page];
+            StartCoroutine(StartPrep());
+            Debug.Log((ButtonUpdatePage.recipePage / 2) - 1);
+            print(ButtonUpdatePage.recipePage);
+            //StartCoroutine(StartPrep());
+        }
 
     }
 

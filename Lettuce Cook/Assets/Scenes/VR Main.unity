@@ -1303,9 +1303,20 @@ MonoBehaviour:
     - ingredient: Fish
       instructions: Crush the garlic to let out the flavors.
       quantity: 2
-  - name: My Will to Live
+  - name: Testbench2
     steps:
     - ingredient: GPA
+      instructions: Cut off GPA
+      quantity: 1
+    - ingredient: Fish
+      instructions: Crush the garlic to let out the flavors.
+      quantity: 2
+    - ingredient: Fish
+      instructions: Crush the garlic to let out the flavors.
+      quantity: 2
+  - name: Testbench3
+    steps:
+    - ingredient: GPA 2
       instructions: Cut off GPA
       quantity: 1
     - ingredient: Fish
