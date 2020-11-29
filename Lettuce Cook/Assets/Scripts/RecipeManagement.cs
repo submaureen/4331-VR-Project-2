@@ -149,5 +149,7 @@ public class RecipeManagement : MonoBehaviour
         float score = ((float)health / maxHealth) * 100f;
 
         subtext.text = "Score: " + score.ToString("0.00");
+
+        Instantiate(currentRecipe.finalFood);
     }
 }

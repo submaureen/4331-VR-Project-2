@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 269008122}
   - component: {fileID: 269008121}
   - component: {fileID: 364065067807241635}
-  - component: {fileID: 3869394095202374525}
   m_Layer: 0
-  m_Name: Particle
+  m_Name: soy_sauce
   m_TagString: particle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4769,18 +4768,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0039598346, y: 0.004785657, z: 0.008872151}
   m_Center: {x: 0.0048567355, y: -0.063444674, z: -0.011484623}
---- !u!114 &3869394095202374525
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269008119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25d0ac049e4ac5f4fa88435eb3e449b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5238570228697279498
 GameObject:
   m_ObjectHideFlags: 0
