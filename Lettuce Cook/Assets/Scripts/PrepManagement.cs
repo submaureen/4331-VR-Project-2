@@ -22,6 +22,8 @@ public class PrepManagement : MonoBehaviour
     public delegate void ClickAction();
     public static event ClickAction finishPrep;
 
+    private bool startedPrep = false;
+
 
 
     // Start is called before the first frame update
@@ -46,7 +48,6 @@ public class PrepManagement : MonoBehaviour
 
     public void testFunc()
     {
-        Debug.Log("starting preparation stage");
         // currentPrep = prep[ButtonUpdatePage.recipePage/2];
         int page = ((ButtonUpdatePage.recipePage / 2) - 1);
         //Debug.Log((ButtonUpdatePage.recipePage / 2) - 1);
@@ -58,7 +59,12 @@ public class PrepManagement : MonoBehaviour
         else
         {
             currentPrep = prep[page];
-            StartCoroutine(StartPrep());
+            if (!startedPrep)
+            {
+                Debug.Log("starting preparation stage");
+                StartCoroutine(StartPrep());
+                startedPrep = true;
+            }
             Debug.Log((ButtonUpdatePage.recipePage / 2) - 1);
             print(ButtonUpdatePage.recipePage);
             //StartCoroutine(StartPrep());
