@@ -48,9 +48,17 @@ public class PrepManagement : MonoBehaviour
     {
         Debug.Log("starting preparation stage");
         // currentPrep = prep[ButtonUpdatePage.recipePage/2];
-        Debug.Log(ButtonUpdatePage.recipePage / 2);
-        // print(ButtonUpdatePage.recipePage);
+        if (ButtonUpdatePage.recipePage < 1)
+        {
+            ButtonUpdatePage.recipePage = 0;
+            Debug.Log(ButtonUpdatePage.recipePage);
+        }
+        else
+        Debug.Log(ButtonUpdatePage.recipePage - 1);
+        print(ButtonUpdatePage.recipePage);
         //StartCoroutine(StartPrep());
+
+
     }
 
 
