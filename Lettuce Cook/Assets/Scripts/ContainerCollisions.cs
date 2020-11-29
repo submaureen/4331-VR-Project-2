@@ -9,6 +9,7 @@ public class ContainerCollisions : MonoBehaviour
     public static Step step;
     public static bool wrongIngredient;
     public static GameObject currentInteraction;
+    private float stepPourTime = -1;
 
     // Start is called before the first frame update
     void Start()
@@ -40,9 +41,15 @@ public class ContainerCollisions : MonoBehaviour
                 Debug.Log(currentInteraction);
                 wrongIngredient = true;
             }
-        } else if (collider.gameObject.tag == "particle")
+        } else if (collider.gameObject.tag == "particle" && !stepClear)
         {
             print("enter: " + collider);
+
+            // Set pour time to quantity only the inital pour
+            if (stepPourTime == -1)
+            {
+                stepPourTime = step.quantity;
+            }
         }
 
        
@@ -50,9 +57,19 @@ public class ContainerCollisions : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "particle")
+        if (other.gameObject.tag == "particle" && !stepClear)
         {
-            print("stay: " + other);
+            if (stepPourTime > 0)
+            {
+                // print("stay: " + other);
+                stepPourTime = stepPourTime - Time.deltaTime;
+                Debug.Log(stepPourTime);
+                Debug.Log(Time.deltaTime);
+            }
+            else {
+                step.quantity = 0;
+                stepClear = true;
+            }
         }
         //time += Time.deltaTime;
     }
