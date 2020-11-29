@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 162722633}
   - component: {fileID: 162722632}
   m_Layer: 0
-  m_Name: Time
+  m_Name: Subtext
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -254,7 +254,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Timer:'
+  m_Text: 
 --- !u!222 &162722634
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -985,7 +985,7 @@ MonoBehaviour:
       penaltyAmount: 1
       quantity: 2
   instruction: {fileID: 2146262822}
-  timer: {fileID: 162722633}
+  subtext: {fileID: 162722633}
 --- !u!4 &880854752
 Transform:
   m_ObjectHideFlags: 0

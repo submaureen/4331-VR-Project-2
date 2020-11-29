@@ -14,11 +14,12 @@ public class RecipeManagement : MonoBehaviour
     Text instruction;
 
     [SerializeField]
-    Text timer;
+    Text subtext;
 
     float currCountdownValue;
     int stepCounter = 0;
     Recipe currentRecipe;
+    int maxHealth = 0;
     // bool currentStepStatus = false;
 
     // Start is called before the first frame update
@@ -29,6 +30,12 @@ public class RecipeManagement : MonoBehaviour
 
         // TODO: Get selected recipe from menu - currently assuming first recipe
         currentRecipe = recipes[0];
+
+        // Get max health for score calculation
+        foreach (Step step in currentRecipe.steps)
+        {
+            maxHealth += step.health;
+        }
 
         PrepManagement.finishPrep += StartRecipe;
 
@@ -61,7 +68,7 @@ public class RecipeManagement : MonoBehaviour
         // cookTime with -1 will wait for step to complete
         while (currCountdownValue == -1 && !ContainerCollisions.stepClear)
         {
-            timer.text = "Take your time :)";
+            subtext.text = "Take your time :)";
             if (ContainerCollisions.wrongIngredient)
             {
                 ContainerCollisions.wrongIngredient = false;
@@ -79,7 +86,7 @@ public class RecipeManagement : MonoBehaviour
         // Countdown until step timer complete
         while (currCountdownValue > 0)
         {
-            timer.text = "Countdown: " + currCountdownValue;
+            subtext.text = "Countdown: " + currCountdownValue;
             if (ContainerCollisions.stepClear)
             {
                 // Finished putting in all of the ingredients
@@ -131,5 +138,16 @@ public class RecipeManagement : MonoBehaviour
     public void DoLast()
     {
         instruction.text = "Finished! Good job!";
+
+        int health = 0;
+        // Calculate score
+        foreach (Step step in currentRecipe.steps)
+        {
+            health += step.health;
+        }
+
+        float score = ((float)health / maxHealth) * 100f;
+
+        subtext.text = "Score: " + score.ToString("0.00");
     }
 }
