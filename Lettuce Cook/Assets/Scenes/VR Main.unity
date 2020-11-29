@@ -983,7 +983,7 @@ MonoBehaviour:
       cookTime: 10
       health: 5
       penaltyAmount: 1
-      quantity: 2
+      quantity: 10
   instruction: {fileID: 2146262822}
   subtext: {fileID: 162722633}
 --- !u!4 &880854752
