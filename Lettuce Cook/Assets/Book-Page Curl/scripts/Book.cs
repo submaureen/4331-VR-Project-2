@@ -360,6 +360,19 @@ public class Book : MonoBehaviour {
 
 
     }
+
+    public void TweenBackLTR()
+    {
+        mode = FlipMode.LeftToRight;
+        TweenForward();
+    }
+
+    public void TweenBackRTL()
+    {
+        mode = FlipMode.RightToLeft;
+        TweenForward();
+    }
+
     public void TweenBack()
     {
         if (mode == FlipMode.RightToLeft)
