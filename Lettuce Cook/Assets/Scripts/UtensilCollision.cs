@@ -11,9 +11,13 @@ public class UtensilCollision : MonoBehaviour
     public static bool wrongIngredient;
     public static GameObject currentInteraction;
     public static bool prepDone = false;
+    public static GameObject self;
+    public static int mixCheck = -1;
+    private float stepPourTime = -1;
     // Start is called before the first frame update
     void Start()
     {
+        // self = gameObject;
         PrepManagement.finishPrep += Foo;
     }
 
@@ -34,13 +38,56 @@ public class UtensilCollision : MonoBehaviour
         {
             if (step.ingredient == collider.gameObject.name)
             {
-                // delete original gameobject
-                // spawn in the same number of chopped prefabs as step.quantity
-                currentInteraction = collider.gameObject;
-                stepClear = true;
-                Debug.Log($"cut into {step.quantity} pieces");
-                Debug.Log("did a chopu");
+                self = gameObject;
+
+
+                if (self.tag == "chop" && self.tag == step.stepType)
+                {
+                    Debug.Log("we gonna chopu chopu");
+                    currentInteraction = collider.gameObject;
+                    stepClear = true;
+                }
+                if (self.tag == "mix" && self.tag == step.stepType)
+                {
+                    currentInteraction = collider.gameObject;
+                    step.quantity--;
+                    if (step.quantity == 0)
+                    {
+                        stepClear = true;
+                    }
+                }
             }
         }
+        else if (collider.gameObject.tag == "particle" && !prepDone && (step.ingredient == collider.gameObject.name))
+        {
+            print("enter: " + collider);
+
+            // Set pour time to quantity only the inital pour
+            if (stepPourTime == -1)
+            {
+                stepPourTime = step.quantity;
+            }
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "particle" && !stepClear &&(step.ingredient == other.gameObject.name))
+        {
+            if (stepPourTime > 0)
+            {
+                // print("stay: " + other);
+                stepPourTime = stepPourTime - Time.deltaTime;
+                Debug.Log(stepPourTime);
+                Debug.Log(Time.deltaTime);
+            }
+            else
+            {
+                step.quantity = 0;
+                gameObject.transform.Find("bowl_liquid").gameObject.SetActive(true);
+                stepClear = true;
+            }
+        }
+        //time += Time.deltaTime;
     }
 }
