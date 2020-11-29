@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class PrepManagement : MonoBehaviour
 {
+    private ButtonUpdatePage updateCurrentPage;
+
+    int recipePage;
 
     [SerializeField]
     Preparation[] prep;
@@ -19,22 +22,54 @@ public class PrepManagement : MonoBehaviour
     public delegate void ClickAction();
     public static event ClickAction finishPrep;
 
+    private bool startedPrep = false;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
-        currentPrep = prep[0];
+        //grabs the current page from book script 
+        // recipePage = GameObject.Find("Button").GetComponent<ButtonUpdatePage>().getCurrentPage();
 
-        Debug.Log(currentPrep.name);
+        // currentPrep = prep[0];
+        ButtonUpdatePage.selectRecipe += testFunc;
+        // Debug.Log(currentPrep.name);
 
-        StartCoroutine(StartPrep());
+        // StartCoroutine(StartPrep());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        //Debug.Log(recipePage);
+
+    }
+
+    public void testFunc()
+    {
+        // currentPrep = prep[ButtonUpdatePage.recipePage/2];
+        int page = ((ButtonUpdatePage.recipePage / 2) - 1);
+        //Debug.Log((ButtonUpdatePage.recipePage / 2) - 1);
+        if (page < 0)
+        {
+            instructions.text = ("Pick a valid recipe!");
+            //Debug.Log(ButtonUpdatePage.recipePage);
+        }
+        else
+        {
+            currentPrep = prep[page];
+            if (!startedPrep)
+            {
+                Debug.Log("starting preparation stage");
+                StartCoroutine(StartPrep());
+                startedPrep = true;
+            }
+            Debug.Log((ButtonUpdatePage.recipePage / 2) - 1);
+            print(ButtonUpdatePage.recipePage);
+            //StartCoroutine(StartPrep());
+        }
+
     }
 
 
