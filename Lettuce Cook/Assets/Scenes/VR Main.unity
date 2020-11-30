@@ -1075,7 +1075,7 @@ PrefabInstance:
     - target: {fileID: 3161530244328880469, guid: b8f47f72e35294547896b2ce40bee55b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3161530244328880469, guid: b8f47f72e35294547896b2ce40bee55b,
         type: 3}
@@ -1391,7 +1391,7 @@ PrefabInstance:
     - target: {fileID: 3161530244328880469, guid: b8f47f72e35294547896b2ce40bee55b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3161530244328880469, guid: b8f47f72e35294547896b2ce40bee55b,
         type: 3}
@@ -4870,12 +4870,12 @@ MonoBehaviour:
       health: 5
       penaltyAmount: 2
       quantity: 2
-    - ingredient: Fish
-      instructions: Please add the fish to the pot!
-      cookTime: 12
+    - ingredient: Bottle1
+      instructions: Please add the vinegar to the pot!
+      cookTime: 10
       health: 5
       penaltyAmount: 1
-      quantity: 1
+      quantity: 2
     - ingredient: Bottle1
       instructions: Please add the soy sauce to the pot!
       cookTime: 10
@@ -4964,6 +4964,10 @@ MonoBehaviour:
       stepType: mix
     - ingredient: soy_sauce
       instructions: Pour soy sauce into the mixing bowl.
+      quantity: 2
+      stepType: mix
+    - ingredient: vinegar
+      instructions: Pour vinegar into the mixing bowl.
       quantity: 2
       stepType: mix
   - name: Hotsilog
@@ -6765,7 +6769,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138529999}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.703, y: 1.158, z: 0.318}
+  m_LocalPosition: {x: 0.955, y: 0.132, z: 2.922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 493002131}
@@ -7053,7 +7057,7 @@ PrefabInstance:
     - target: {fileID: 3161530244328880469, guid: b8f47f72e35294547896b2ce40bee55b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3161530244328880469, guid: b8f47f72e35294547896b2ce40bee55b,
         type: 3}
@@ -15581,7 +15585,7 @@ PrefabInstance:
     - target: {fileID: 3161530244328880469, guid: b8f47f72e35294547896b2ce40bee55b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3161530244328880469, guid: b8f47f72e35294547896b2ce40bee55b,
         type: 3}
