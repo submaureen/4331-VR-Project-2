@@ -13,11 +13,17 @@ public class AudioManagement : MonoBehaviour
 
     public AudioSource loop;
 
-    private bool doneIntro = false;
+    // keep a copy of the executing script
+    private IEnumerator coroutine;
+
     // Start is called before the first frame update
     void Start()
     {
         ButtonUpdatePage.selectRecipe += PlayAudio;
+        RadioControl.playAudio += PlayAudio;
+        RadioControl.stopAudio += StopAudio;
+
+        coroutine = WaitForIntro();
     }
 
     // Update is called once per frame
@@ -28,15 +34,21 @@ public class AudioManagement : MonoBehaviour
 
     public void PlayAudio()
     {
+        coroutine = WaitForIntro();
         intro.enabled = true;
-        StartCoroutine(WaitForIntro());
+        StartCoroutine(coroutine);
+    }
+
+    public void StopAudio()
+    {
+        intro.enabled = false;
+        loop.enabled = false;
+        StopCoroutine(coroutine);
     }
 
     public IEnumerator WaitForIntro()
     {
         yield return new WaitForSeconds(10f);
-
-        Debug.Log("song is finished!");
 
         intro.enabled = false;
         loop.enabled = true;
