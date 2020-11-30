@@ -4,9 +4,9 @@
 
 The cooking game with no lettuce. Also a filipino-centric cooking game.
 
-Demo Link:
-Video Link: 
+Demo Link (extremely alpha build): https://drive.google.com/file/d/1ZcSvQe5G1gTzzVBdni-12O9PYiwbXAie/view
 
+Video Link: https://youtu.be/vt0MABPl3u4
 
 ## Design
 
