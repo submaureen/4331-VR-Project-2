@@ -98,6 +98,7 @@ public class ContainerCollisions : MonoBehaviour
                 sfx[2].Stop();
                 step.quantity = 0;
                 stepClear = true;
+                stepPourTime = -1;
             }
         }
         //time += Time.deltaTime;

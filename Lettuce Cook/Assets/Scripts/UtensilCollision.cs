@@ -97,6 +97,7 @@ public class UtensilCollision : MonoBehaviour
                 sfx[1].Stop();
                 gameObject.transform.Find("bowl_liquid").gameObject.SetActive(true);
                 stepClear = true;
+                stepPourTime = -1;
             }
         }
         //time += Time.deltaTime;
