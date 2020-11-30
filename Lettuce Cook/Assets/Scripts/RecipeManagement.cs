@@ -28,6 +28,8 @@ public class RecipeManagement : MonoBehaviour
     Recipe currentRecipe;
     int maxHealth = 0;
 
+    private bool hasStarted = false;
+
     public delegate void ClickAction();
     public static event ClickAction burnedIngredient;
 
@@ -41,13 +43,7 @@ public class RecipeManagement : MonoBehaviour
         // OPTIONAL TODO: populate recipes from json and remove SerializeField attribute
 
         // TODO: Get selected recipe from menu - currently assuming first recipe
-        currentRecipe = recipes[0];
 
-        // Get max health for score calculation
-        foreach (Step step in currentRecipe.steps)
-        {
-            maxHealth += step.health;
-        }
 
         PrepManagement.finishPrep += StartRecipe;
 
@@ -65,13 +61,29 @@ public class RecipeManagement : MonoBehaviour
 
     public void StartRecipe()
     {
-        Debug.Log("aefie?");
-        StartCoroutine(StartCountdown());
+
+
+        if (!hasStarted)
+        {
+            Debug.Log("aefie?");
+            int page = ((ButtonUpdatePage.recipePage / 2) - 1);
+            currentRecipe = recipes[page];
+
+            // Get max health for score calculation
+            foreach (Step step in currentRecipe.steps)
+            {
+                maxHealth += step.health;
+            }
+            UtensilCollision.prepDone = true;
+            hasStarted = true;
+            StartCoroutine(StartCountdown());
+        }
     }
 
 
     public IEnumerator StartCountdown()
     {
+        subtext.fontSize = 60;
         Step currentStep = currentRecipe.steps[stepCounter];
 
         instruction.text = currentStep.instructions;

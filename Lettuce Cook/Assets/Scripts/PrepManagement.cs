@@ -16,6 +16,9 @@ public class PrepManagement : MonoBehaviour
     [SerializeField]
     Text instructions;
 
+    [SerializeField]
+    Text subtext;
+
     Preparation currentPrep;
     int stepCounter = 0;
 
@@ -48,26 +51,32 @@ public class PrepManagement : MonoBehaviour
 
     public void testFunc()
     {
-        // currentPrep = prep[ButtonUpdatePage.recipePage/2];
+        subtext.text = "";
+        Debug.Log("a");
         int page = ((ButtonUpdatePage.recipePage / 2) - 1);
-        //Debug.Log((ButtonUpdatePage.recipePage / 2) - 1);
         if (page < 0)
         {
             instructions.text = ("Pick a valid recipe!");
-            //Debug.Log(ButtonUpdatePage.recipePage);
         }
         else
         {
             currentPrep = prep[page];
-            if (!startedPrep)
+
+            if (!startedPrep && currentPrep.steps.Length > 0)
             {
+
                 Debug.Log("starting preparation stage");
                 StartCoroutine(StartPrep());
                 startedPrep = true;
             }
-            Debug.Log((ButtonUpdatePage.recipePage / 2) - 1);
-            print(ButtonUpdatePage.recipePage);
-            //StartCoroutine(StartPrep());
+            else
+            {
+                Debug.Log("0 prep stages found");
+                if (currentPrep.steps.Length == 0)
+                {
+                    finishPrep();
+                }
+            }
         }
 
     }
