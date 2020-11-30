@@ -4003,7 +4003,7 @@ MonoBehaviour:
   - name: Hotsilog
     steps: []
   instructions: {fileID: 2146262822}
-  subtext: {fileID: 0}
+  subtext: {fileID: 162722633}
 --- !u!82 &880854754
 AudioSource:
   m_ObjectHideFlags: 0
