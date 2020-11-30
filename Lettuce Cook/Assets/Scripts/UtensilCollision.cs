@@ -37,6 +37,10 @@ public class UtensilCollision : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        if (collider.name == "ritz")
+        {
+            //RitzHandler.SpawnRit();
+        }
         if (collider.gameObject.tag == "ingredient" && !prepDone)
         {
             if (step.ingredient == collider.gameObject.name)

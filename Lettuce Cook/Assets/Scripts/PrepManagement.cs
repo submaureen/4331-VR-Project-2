@@ -16,6 +16,9 @@ public class PrepManagement : MonoBehaviour
     [SerializeField]
     Text instructions;
 
+    [SerializeField]
+    Text subtext;
+
     Preparation currentPrep;
     int stepCounter = 0;
 
@@ -48,6 +51,7 @@ public class PrepManagement : MonoBehaviour
 
     public void testFunc()
     {
+        subtext.text = "";
         Debug.Log("a");
         int page = ((ButtonUpdatePage.recipePage / 2) - 1);
         if (page < 0)

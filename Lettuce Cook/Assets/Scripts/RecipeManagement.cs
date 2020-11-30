@@ -83,6 +83,7 @@ public class RecipeManagement : MonoBehaviour
 
     public IEnumerator StartCountdown()
     {
+        subtext.fontSize = 60;
         Step currentStep = currentRecipe.steps[stepCounter];
 
         instruction.text = currentStep.instructions;
