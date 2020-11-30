@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         Vector2 inputDir = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         inputDir.Normalize();
 
-        Vector3 velocity = (transform.forward * inputDir.y + transform.right * inputDir.x) * 10;
+        Vector3 velocity = (transform.forward * inputDir.y + transform.right * inputDir.x) * 3;
 
         controller.Move(velocity * Time.deltaTime);
 
